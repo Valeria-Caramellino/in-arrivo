@@ -27,7 +27,7 @@ class UpdateProjectRequest extends FormRequest
             
             "title"=>"required|min:4|max:160",
             "content"=>"min:5|max:65535",
-            "image" =>"image|max:255",
+            "image" =>"image|max:1024",
             "type_id"=>"nullable|exists:types,id",
             "tecnologies"=>"nullable|exists:tecnologies,id",
             

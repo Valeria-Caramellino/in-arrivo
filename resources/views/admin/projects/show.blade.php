@@ -13,7 +13,7 @@
             </div>
             
             <div class="col-6 p-5">
-                <img class="w-100" src="{{ $project->image }}" alt="{{ $project->title }}">
+                <img class="w-100" src="{{asset('storage/'. $project->image)  }}" alt="{{ $project->title }}">
             </div>
             <div class="col-6 p-5 d-flex flex-column justify-content-center">
                 <h2>{{ $project->title }}</h2>

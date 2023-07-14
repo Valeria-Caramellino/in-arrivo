@@ -7,7 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Tecnology;
 use App\Models\Type;
-
+use Illuminate\Support\Facades\Storage;
 use function PHPSTORM_META\type;
 
 class ProjectController extends Controller
@@ -48,6 +48,15 @@ class ProjectController extends Controller
         //dump($request->all());
         $data = $request->validated();
         //dump($data);
+
+        if($request->hasFile("image")) {
+
+            $img_path = Storage::put("uploads", $data['image']);
+
+            $data['image'] = $img_path;
+        }
+        //dump($data['image']);
+        
         $newProject = new Project();
 
         $newProject->fill($data);

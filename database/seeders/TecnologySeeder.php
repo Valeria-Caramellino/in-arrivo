@@ -6,7 +6,7 @@ use App\Models\Tecnology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-
+use Illuminate\Support\Facades\Schema;
 class TecnologySeeder extends Seeder
 {
     /**
@@ -16,6 +16,10 @@ class TecnologySeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        Schema::disableForeignKeyConstraints();
+        Tecnology::truncate();
+        Schema::enableForeignKeyConstraints();
+
         $tecnologyes = ["Laravel","Php","Vuejs","Html","Css","Sass","Bootstrap"];
         foreach($tecnologyes as $tecnology){
              
