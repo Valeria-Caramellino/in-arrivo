@@ -16,7 +16,7 @@
         </div>
         @endif
 
-        <form action="{{ route("admin.project.update", $project) }}" method="post" class="needs-validation">
+        <form action="{{ route("admin.project.update", $project) }}" method="post" class="needs-validation" enctype="multipart/form-data">
             @csrf
 
             @method('PUT')
@@ -51,7 +51,7 @@
             </div>
 
             <label for="image">URL Immagine</label>
-            <input type="text" name="image" id="image" value="{{ old("image")?? $project->image }}" class="form-control mb-4 @error('image') is-invalid @enderror">
+         <input type="file" name="image" id="image">
             @error("image")
                 <div class="invalid-feedback">{{$message}}</div>
             @enderror
